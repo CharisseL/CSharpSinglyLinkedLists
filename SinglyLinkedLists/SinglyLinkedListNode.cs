@@ -11,7 +11,7 @@ namespace SinglyLinkedLists
         // Used by the visualizer.  Do not change. Not at all.
         public static List<SinglyLinkedListNode> allNodes = new List<SinglyLinkedListNode>();
 
-        // READ: http://msdn.microsoft.com/en-us/library/aa287786(v=vs.71).aspx
+        // READ: http://msdn.microso ft.com/en-us/library/aa287786(v=vs.71).aspx
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
         {
