@@ -45,7 +45,17 @@ namespace SinglyLinkedLists
             }
             else
             {
-                firstNode.Next = new SinglyLinkedListNode(value);
+                SinglyLinkedListNode node = this.firstNode;
+                while(true)
+                {
+                    if(node.Next == null)
+                    {
+                        node.Next = new SinglyLinkedListNode(value);
+                        break;
+                    }
+                    node = node.Next;
+                }
+                
             }
         }
 
@@ -96,7 +106,12 @@ namespace SinglyLinkedLists
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
         public string Last()
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode node = this.firstNode;
+            if (node == null)
+            {
+                return null;
+            }
+            return "foo";
         }
 
         public void Remove(string value)
