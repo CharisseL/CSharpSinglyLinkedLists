@@ -121,6 +121,28 @@ namespace SinglyLinkedLists
             }
         }
 
+        public override string ToString()
+        {
+            if (this.firstNode == null)          
+            {
+                return "{ }";
+            }
+            StringBuilder listString = new StringBuilder("{ \"");
+            SinglyLinkedListNode node = this.firstNode;
+            while (true)
+            {
+                listString.Append(node.ToString());
+                if (node.Next == null)
+                {
+                    break;
+                }
+                    listString.Append("\", \"");
+                    node = node.Next;
+            }
+            listString.Append("\" }");
+            return listString.ToString();
+        }   
+       
         public void Remove(string value)
         {
             throw new NotImplementedException();
