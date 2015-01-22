@@ -42,23 +42,21 @@ namespace SinglyLinkedLists
             if (firstNode == null)
             {
                 firstNode = new SinglyLinkedListNode(value);
+                return;
             }
-            else
+            
+            SinglyLinkedListNode node = this.firstNode;
+            while(true)
             {
-                SinglyLinkedListNode node = this.firstNode;
-                while(true)
+                if(node.Next == null)
                 {
-                    if(node.Next == null)
-                    {
-                        node.Next = new SinglyLinkedListNode(value);
-                        break;
-                    }
-                    node = node.Next;
+                    node.Next = new SinglyLinkedListNode(value);
+                    break;
                 }
-                
-            }
+                node = node.Next;
+            }   
         }
-
+        
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
@@ -106,12 +104,21 @@ namespace SinglyLinkedLists
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
         public string Last()
         {
-            SinglyLinkedListNode node = this.firstNode;
-            if (node == null)
+           
+            if (this.firstNode == null)
             {
                 return null;
             }
-            return "foo";
+            int counter = 0;
+            SinglyLinkedListNode node = firstNode;
+            while(true)
+            {
+                if (node.Next == null)
+                {
+                    return node.ToString();
+                }
+                node = node.Next;
+            }
         }
 
         public void Remove(string value)
