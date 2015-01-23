@@ -9,7 +9,6 @@ namespace SinglyLinkedLists
     {
         private SinglyLinkedListNode firstNode;
         public SinglyLinkedList()
-
         {
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
         }
@@ -44,19 +43,19 @@ namespace SinglyLinkedLists
                 firstNode = new SinglyLinkedListNode(value);
                 return;
             }
-            
+
             SinglyLinkedListNode node = this.firstNode;
-            while(true)
+            while (true)
             {
-                if(node.Next == null)
+                if (node.Next == null)
                 {
                     node.Next = new SinglyLinkedListNode(value);
                     break;
                 }
                 node = node.Next;
-            }   
+            }
         }
-        
+
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
@@ -104,14 +103,14 @@ namespace SinglyLinkedLists
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
         public string Last()
         {
-           
+
             if (this.firstNode == null)
             {
                 return null;
             }
             int counter = 0;
             SinglyLinkedListNode node = firstNode;
-            while(true)
+            while (true)
             {
                 if (node.Next == null)
                 {
@@ -123,7 +122,7 @@ namespace SinglyLinkedLists
 
         public override string ToString()
         {
-            if (this.firstNode == null)          
+            if (this.firstNode == null)
             {
                 return "{ }";
             }
@@ -136,13 +135,13 @@ namespace SinglyLinkedLists
                 {
                     break;
                 }
-                    listString.Append("\", \"");
-                    node = node.Next;
+                listString.Append("\", \"");
+                node = node.Next;
             }
             listString.Append("\" }");
             return listString.ToString();
-        }   
-       
+        }
+
         public void Remove(string value)
         {
             throw new NotImplementedException();
@@ -155,7 +154,25 @@ namespace SinglyLinkedLists
 
         public string[] ToArray()
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode node = firstNode;
+            if (node == null)
+            {
+                return new string[] { };
+            }
+            List<string> list = new List<string> { };
+            while (true)
+            {
+                list.Add(node.Value);
+                if (node.Next == null)
+                {
+                    break;
+                }
+                else
+                {
+                    node = node.Next;
+                } 
+            }
+            return list.ToArray<string>();
         }
     }
 }
