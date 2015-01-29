@@ -16,7 +16,10 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params object[] values)
         {
-            throw new NotImplementedException();
+            foreach (object item in values)
+            {
+                AddLast(item.ToString());
+            }
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
@@ -41,7 +44,7 @@ namespace SinglyLinkedLists
                     node = node.Next;
                     if (node == null)
                     {
-                        throw new NotImplementedException(); 
+                        throw new System.ArgumentException(); 
                     }   
              }
         }
@@ -168,10 +171,19 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
-
+        private void swap(SinglyLinkedListNode prevPrev, SinglyLinkedListNode prev, SinglyLinkedListNode curr)
+        {
+            var temp = prev;
+            prev.Next = curr.Next;
+            curr.Next = temp;
+            if (firstNode == temp)
+            {
+                
+            }
+        }
         public void Sort()
         {
-            throw new NotImplementedException();
+            
         }
 
         public string[] ToArray()
